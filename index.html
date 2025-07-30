@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pranay Ghavghave Landing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    .hero {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow-blobs {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .blob {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #00f0ff, #0088ff);
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.5;
+      animation: moveBlob 20s ease-in-out infinite alternate;
+    }
+
+    .blob:nth-child(2) {
+      left: 60%;
+      top: 40%;
+      background: radial-gradient(circle, #ff00f7, #a100ff);
+      animation-delay: 5s;
+    }
+
+    .blob:nth-child(3) {
+      left: 30%;
+      top: 70%;
+      background: radial-gradient(circle, #00ff94, #00c17b);
+      animation-delay: 10s;
+    }
+
+    @keyframes moveBlob {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-50px, 80px) scale(1.2); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #00f0ff;
+      text-shadow: 0 0 20px #00f0ff;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    h1:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 30px #00f0ff, 0 0 60px #00f0ff;
+    }
+
+    h1::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      transform: scaleY(-1);
+      opacity: 0.2;
+      text-shadow: 0 0 10px #00f0ff;
+      animation: ripple 5s infinite linear;
+    }
+
+    @keyframes ripple {
+      0% { clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%); }
+      50% { clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0% 100%); }
+      100% { clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%); }
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #f0f0f0;
+      text-shadow: 0 0 8px #00e5ff44;
+    }
+
+    .cta-btn {
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      background-color: transparent;
+      border: 2px solid #00f0ff;
+      border-radius: 50px;
+      color: #00f0ff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #00f0ff44;
+    }
+
+    .cta-btn:hover {
+      background-color: #00f0ff;
+      color: black;
+      box-shadow: 0 0 25px #00f0ff;
+    }
+
+    .extra-info {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: #ccc;
+      text-shadow: 0 0 6px #ffffff22;
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .wave path {
+      fill: #00f0ff33;
+      animation: waveAnimate 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes waveAnimate {
+      0% {
+        d: path("M0,160 C320,200 640,120 960,160 C1280,200 1600,100 1920,160 L1920,300 L0,300 Z");
+      }
+      100% {
+        d: path("M0,180 C320,120 640,220 960,160 C1280,100 1600,200 1920,180 L1920,300 L0,300 Z");
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      p, .extra-info { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="glow-blobs">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+    </div>
+
+    <div class="content animate__animated animate__fadeInDown">
+      <h1 data-text="Pranay Ghavghave">Pranay Ghavghave</h1>
+      <p class="animate__animated animate__fadeInUp">Creative CSE Student | 2nd Year | Future Tech Builder</p>
+       <a href="https://www.linkedin.com/in/pranay-ghavghave-6a5b7b374/" target="__blank" class="cta-btn">Explore More</a>
+
+      <div class="extra-info animate__animated animate__fadeInUp animate__delay-1s">
+        <p><strong>Branch:</strong> Computer Science and Engineering (CSE)</p>
+        <p><strong>Class:</strong> 2nd Year</p>
+      </div>
+    </div>
+
+    <svg class="wave" viewBox="0 0 1920 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,160 C320,200 640,120 960,160 C1280,200 1600,100 1920,160 L1920,300 L0,300 Z" />
+    </svg>
+  </section>
+</body>
+</html>
